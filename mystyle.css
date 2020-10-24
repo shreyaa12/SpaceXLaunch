@@ -135,15 +135,13 @@ footer{
 } 
 
 #no_data {
-  position: absolute;
-  left: 50%;
-  top: 50%;
+  position: relative;
 }
 
 .loader {
-  position: absolute;
-  left: 50%;
-  top: 50%;
+  position: relative;
+  /* left: 50%;
+  top: 50%; */
   visibility: hidden;
   border: 12px solid #f3f3f3;
   border-radius: 50%;
@@ -185,6 +183,7 @@ footer{
   .rwd-line {
     display:block ;
 }
+
  
   
 }
@@ -208,6 +207,7 @@ footer{
   .design{
     width: 100%;
   }
+ 
 }
 
 @media screen and (min-width:1025px) and (max-width:1440px) {
@@ -229,6 +229,7 @@ footer{
   .design{
     width: 100%;
   }
+ 
 }
 
 @media screen and (min-width:1441px) {
@@ -244,6 +245,8 @@ footer{
   .content-bold16 {
     font-size: 18px; 
   }
+ 
+ 
 }
 
 
