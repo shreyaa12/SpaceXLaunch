@@ -16,23 +16,28 @@
   <header class="heading">SpaceX Launch Programs</header>
   <div id="main">
     <div id="fiPanel" class="filterCard">
-      <h4>Filters</h4>
-      <div>
+      <!-- <h4>Filters</h4> -->
+      <div class="filter">
         <div align="center"><span class="bold-underline">Launch Year</span><hr></div>
         <div id="fill"></div>
       </div>
       <div>
         <div align="center"><span class="bold-underline">Successful Launch</span><hr></div>
         <div class="container">
-          <div class="filterItem" id='launch-true' onclick="launchFilter(this.id)"><span>True</span></div>
-          <div class="filterItem" id='launch-false' onclick="launchFilter(this.id)"><span>False</span></div>
+          <!-- <label class="switch">
+            <input type="checkbox" id="launchYN" onclick="launchFilter()">
+            <span class="slider round"></span>
+          </label> -->
+          
+          <div class="filterItem" id='launch-true' onclick="launchFilter(this.id)"><span>Yes</span></div>
+          <div class="filterItem" id='launch-false' onclick="launchFilter(this.id)"><span>No</span></div> 
         </div>
       </div>
       <div>
         <div class="sLand" align="center"><span class="bold-underline">Successful Landing</span><hr></div>
         <div class="container">
-          <div class="filterItem" id='landing-true' onclick="landingFilter(this.id)"><span>True</span></div>
-          <div class="filterItem" id='landing-false' onclick="landingFilter(this.id)"><span>False</span></div>
+          <div class="filterItem" id='landing-true' onclick="landingFilter(this.id)"><span>Yes</span></div>
+          <div class="filterItem" id='landing-false' onclick="landingFilter(this.id)"><span>No</span></div>
         </div>
       </div>
     </div>
@@ -43,6 +48,7 @@
   <script src="index.js"></script>
   <footer ><span class="footer-bold rwd-line">Developed by: </span><span class="footer rwd-line">Shreya
       Gokani</span></footer>
+      
 </body>
 
 </html>

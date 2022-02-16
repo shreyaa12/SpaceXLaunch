@@ -13,7 +13,7 @@ function load() {
 }
 
 let years = ['2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020']
-
+years.reverse();
 let filters = [
   {
     key: 'launch_year',
@@ -77,10 +77,10 @@ request.onload = function () {
         const h1 = document.createElement('h1')
         h1.textContent = mission.mission_name + ' #' + mission.flight_number
 
-        const missionIds = document.createElement('div')
-        const missionIdsTitle = document.createElement('p')
+        const missionIds = document.createElement('p')
+        const missionIdsTitle = document.createElement('span')
         missionIdsTitle.textContent = 'Mission Ids: '
-        missionIdsTitle.setAttribute('class', 'content-bold16')
+        missionIdsTitle.setAttribute('class', 'content-normal16')
         const missionIdsValue = document.createElement('ul')
         mission.mission_id.forEach(id => {
           const i = document.createElement("li")
@@ -94,7 +94,7 @@ request.onload = function () {
         const year = document.createElement('p')
         const yearTitle = document.createElement('span')
         yearTitle.textContent = 'Launch Year: '
-        yearTitle.setAttribute('class', 'content-bold16')
+        yearTitle.setAttribute('class', 'content-normal16')
         const yearValue = document.createElement('span')
         yearValue.textContent = `${mission.launch_year}`
         yearValue.setAttribute('class', 'content-normal14')
@@ -104,8 +104,17 @@ request.onload = function () {
         const successLaunch = document.createElement('p')
         const launchTitle = document.createElement('span')
         launchTitle.textContent = 'Successful Launch: '
-        launchTitle.setAttribute('class', 'content-bold16')
-        const launchValue = document.createElement('span')
+        launchTitle.setAttribute('class', 'content-normal16')
+        const launchValue = document.createElement('span');
+        // for(var i=0;i<mission.length;i++){
+          if(mission.launch_success == true){
+            mission.launch_success = 'Yes';
+            // console.log("mission.launch_success",mission.launch_success)
+          }else if(mission.launch_success == false){
+            mission.launch_success = 'No';
+            // console.log("mission.launch_success",mission.launch_success)
+          }
+        // }
         launchValue.textContent = `${mission.launch_success}`
         launchValue.setAttribute('class', 'content-normal14')
         successLaunch.appendChild(launchTitle)
@@ -114,11 +123,16 @@ request.onload = function () {
         const successLand = document.createElement('p')
         const landTitle = document.createElement('span')
         landTitle.textContent = 'Successful landing: '
-        landTitle.setAttribute('class', 'content-bold16')
+        landTitle.setAttribute('class', 'content-normal16')
         const landValue = document.createElement('span')
         const cores = mission.rocket.first_stage.cores
         const core = cores[cores.length - 1]
         if (core.land_success !== null) {
+          if(core.land_success == true){
+            core.land_success = 'Yes'
+          }else{
+            landValue.textContent = 'No'
+          }
           landValue.textContent = `${core.land_success}`
         } else {
           landValue.textContent = '--'
@@ -176,6 +190,9 @@ function yearFilter(id) {
 }
 
 function launchFilter(id) {
+  
+  // let filterValue = document.getElementById("launchYN");
+  // console.log(filterValue.checked);
   loader.style.visibility = 'visible'
   document.getElementById('no_data').style.visibility = 'hidden'
   container.innerHTML=''
@@ -184,17 +201,17 @@ function launchFilter(id) {
     if (filter.key === 'launch_success') {
       if(filter.isApplied === true) {
         document.getElementById(`launch-${filter.value}`).style.background = '#C0EC83'
-        if(filter.value === filterValue) {
+        if(filter.value === filterValue.checked) {
           filter.value = ''
           filter.isApplied = false
         } else {
           document.getElementById(id).style.background='#96CC39';
-          filter.value = filterValue
+          filter.value = filterValue.checked
         }
       } else {
         document.getElementById(id).style.background='#96CC39';
         filter.isApplied = true
-        filter.value = filterValue
+        filter.value = filterValue.checked
       }      
     }
   })
@@ -225,4 +242,3 @@ function landingFilter(id) {
   })
   load()
 }
-
