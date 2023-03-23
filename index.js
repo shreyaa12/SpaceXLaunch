@@ -197,10 +197,11 @@ function launchFilter(id) {
   document.getElementById('no_data').style.visibility = 'hidden'
   container.innerHTML=''
   let filterValue = id.substring(id.indexOf('-')+1, id.length)
+  console.log(filterValue);
   filters.forEach(filter => {
     if (filter.key === 'launch_success') {
       if(filter.isApplied === true) {
-        document.getElementById(`launch-${filter.value}`).style.background = '#C0EC83'
+        document.getElementById(`launch-${filterValue}`).style.background = '#C0EC83'
         if(filter.value === filterValue.checked) {
           filter.value = ''
           filter.isApplied = false
@@ -225,7 +226,7 @@ function landingFilter(id) {
   filters.forEach(filter => {
     if (filter.key === 'land_success') {
       if(filter.isApplied === true) {
-        document.getElementById(`landing-${filter.value}`).style.background = '#C0EC83'
+        document.getElementById(`landing-${filterValue}`).style.background = '#C0EC83'
         if(filter.value === filterValue) {
           filter.value = ''
           filter.isApplied = false

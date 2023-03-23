@@ -141,7 +141,7 @@ p {
 
 .card {
   margin: 1rem;
-  background: #000;
+  background: #FFF;
   box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
   border-radius: 12px;
   overflow: hidden;
@@ -155,7 +155,7 @@ p {
 .filterCard{
   border-radius: 5px;
   flex: 0 0 20vw;
-  background: #000;
+  background: #FFF;
   text-align: center;
   font-weight: bold;
   font-family: 'Segoe UI Light';
@@ -164,7 +164,7 @@ p {
 .filterItem {
   flex: 1 1 calc(50% - 2rem);
   margin: 0.25rem;
-  background: #444343;
+  background: #fff;
   box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
   border-radius: 5px;
   overflow: hidden;
